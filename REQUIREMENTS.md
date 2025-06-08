@@ -16,10 +16,10 @@ It can be very time consuming to attempt to collect and categorize the music pie
 ### Goals
 - Provide free open-source AI for research, text generation, and English language interaction
 - Provide web interface for easy interaction with AI
-- Provide AI with RAG (Retrieval Augmented Generation) access to existing PDF music library
-- Provide 2 factor authentication for access to application
+- Provide AI access to existing PDF music library
+- Provide authentication for access to application
 - Provide least cost possible by limiting resources used to minimal when no research is needed
-- Provide security around all components to protect against copyright infringement 
+- Provide security around file storage access to protect against copyright infringement 
 - Provide IAC for entirety of application
 
 ### Stakeholders
@@ -31,43 +31,18 @@ It can be very time consuming to attempt to collect and categorize the music pie
 
 ## Functional Requirements
 ### Core Features
-#### Prototype Phase
-1. Prototype open-source AI running LLM model that can read music 
-2. Prototype AI with RAG access to private PDF collection of music
-3. Prototype simple web interface with query access to AI
-
-#### Infrastructure Phase
-1. Design system architecture that covers business and technical requirements
-    - 2 factor authentication design, maybe IP and password
-2. Implement IAC using Terraform to mount infrastructure in AWS
-    - Domain name registration for easy user access
-3. Implement secrets management for required tokens that cannot be stored in GitHub
-    - OAuth 2.0 API key for Google Drive
-
-#### UAT Phase
-1. Implement UAT release of application, aka deploy stable version for UAT with orchestra library access
-2. Invite stakeholders in to use application and provide feedback
-3. Incorporate stakeholder feedback into application
-
-#### Elastic expense phase
-1. Implement near zero expense tear down of infrastructure, aka elastic shrink or timed auto removal
-   - UAT and TEST environments exist, start shrinking them to zero
-   - Unsure of best method to manage shrink / tear down
-2. Implement build out of on-demand of infrastructure, aka elastic growth
-3. May need to implement Librarian only GUI for on-demand grow / shrink
-
-#### Prod Release
-1. Implement production release, aka rename UAT to Prod
-2. Cleanup dev resources
-
+- Domain name to easily access AI application
+- Query ability of AI application
+- AI with access to digital music library
+- AI with web access for research purposes
 
 ### User Interface
-- [Describe UI requirements]
-- [Include mockups or wireframes if available]
+- There is not much GUI requirements needed.  Only simple questions or queries being asked of the AI, and it responses coming back.  A single text input box with a submit button is enough to cover the basic needs.
 
 ### User Experience
-- [Describe UX requirements]
-- [Include user flow diagrams if available]
+- The users will interact with the AI application in the question or query format, and read the responses.  They are technically savvy enough to copy and paste out the responses needed outside this application.  
+- If existing files are referenced as part of the query response, the name and folder location are sufficient for inclusion in the response.  Users expect and interact directly with the file storage system outside of this application.
+- If new files are created from the AI, it will be creating and pushing the new files into the existing document storage location and simply providing the name folder location of the new file to the user.
 
 ## Technical Requirements
 ### System Architecture
@@ -126,6 +101,37 @@ It can be very time consuming to attempt to collect and categorize the music pie
 ## Risks
 - [List potential risks]
 - [Include mitigation strategies]
+
+## Buildout Workflow Phases
+### 1 Prototype Phase []
+1. Prototype open-source AI running LLM model that can perform internet research 
+2. Prototype AI with RAG access to private PDF collection of music
+3. Prototype simple web interface with query access to AI
+
+### 2 Infrastructure Phase
+1. Design system architecture that covers business and technical requirements
+2. Implement IAC using Terraform to mount infrastructure in AWS
+    - Domain name registration for easy user access
+    - Define DEV, UAT, and PROD subdomains
+3. Implement secrets management for required tokens that cannot be stored in GitHub
+    - OAuth 2.0 API key for Google Drive
+
+### 3 UAT Phase
+1. Implement UAT release of application, aka deploy stable version for UAT with orchestra library access
+2. Invite stakeholders in to use application and provide feedback
+3. Incorporate stakeholder feedback into application
+
+### 4 Elastic expense phase
+1. Implement near zero expense tear down of infrastructure, aka elastic shrink or timed auto removal
+   - UAT and TEST environments exist, start shrinking them to zero
+   - Unsure of best method to manage shrink / tear down
+2. Implement build out of on-demand of infrastructure, aka elastic growth
+3. May need to implement Librarian only GUI for on-demand grow / shrink
+
+### 5 Prod Release
+1. Implement production release, aka rename UAT to Prod
+2. Cleanup dev resources
+
 
 ## Appendix
 ### Glossary

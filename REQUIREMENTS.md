@@ -7,20 +7,22 @@ It can be very time consuming to attempt to collect and categorize the music pie
 
 ## Business Requirements
 ### Goals
-- Provide the ability to query in English across the digital library of music
-- Provide method of easily growing of the library by adding additional pieces of sheet music with minimal metadata collection
-- Provide assistance with musical score piece research for planning themes of future concerts
-- As a future stretch goal, provide the ability to re-score pieces to shift/separate/combine parts for not-included instrument scores, and add them to the library
+- Provide the ability to **query** in English across the **digital library** of music
+  - Queries can include **metadata**, e.g. details like the title, composer, arranger, instrumentation, and publication date
+  - Queries can include content contained in the **musical notation** itself, e.g. data in the symbols to represent notes, rhythms, and dynamics. Also data in the notes such as pitches, clefs like the treble and bass clef, determining which notes correspond to lines and spaces.
+- Handle easily **growing the library** by adding additional pieces of sheet music with minimal metadata collection outside of the application
+- Provide **assistance with** musical score piece **research** for planning themes of future concerts
+- As a future stretch goal, provide the ability to **re-score pieces** to shift/separate/combine parts for not-included instrument scores, and add them to the library
 
 ## Technical Requirements
 ### Goals
-- Provide free open-source AI for research, text generation, and English language interaction
-- Provide web interface for easy interaction with AI
-- Provide AI access to existing PDF music library
-- Provide authentication for access to application
-- Provide least cost possible by limiting resources used to minimal when no research is needed
-- Provide security around file storage access to protect against copyright infringement 
-- Provide IAC for entirety of application
+- Provide free **open-source AI** for research, text generation, and English language interaction
+- Provide **web interface** for easy interaction with AI
+- Provide AI **access to existing PDF music library**
+- Provide **authentication** for access to application
+- Provide **least cost possible** by limiting resources used to minimal when no research is needed
+- Provide **security around file storage access** to protect against copyright infringement 
+- Provide **Infrastructure As Code** IAC for entirety of application
 
 ### Stakeholders
 - Orchestra Librarian

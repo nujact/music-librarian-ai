@@ -46,18 +46,28 @@ It can be very time consuming to attempt to collect and categorize the music pie
 
 ## Technical Requirements
 ### System Architecture
-- [Describe system architecture]
-- [Include architecture diagrams if available]
+- This application will using off-the-shelf components mounted in the AWS cloud, and communicate via AWS networking.  OLLaMa is an excellent and free open source LLM engine, and OpenWebUI is an excellent GUI for generic LLM querying.  
+- ![Music AI Architecture](./phases/2.infra/MusicAIArchitecture.jpg)
 
 ### Technology Stack
 - Frontend:
-  - [List frontend technologies]
+  - [OpenWebUI](https://docs.openwebui.com/)
 - Backend:
-  - [List backend technologies]
+  - [Ollama](https://ollama.com/)
 - Database:
-  - [List database technologies]
+  - Postgres database embedded with OpenWebUI
 - Infrastructure:
-  - [List infrastructure requirements]
+  - AWS Cloud
+    - VPC
+    - 2 Subnets, public and private
+    - Elastic IP
+    - EC2
+    - ECS Fargate, 2 containers
+      - OpenWebUI
+      - Postgres
+    - ALB
+    - Route53 Domain name
+    - Google drive, pre-existing
 
 ### Performance Requirements
 - [List performance metrics]

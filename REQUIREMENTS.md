@@ -53,7 +53,7 @@ It can be very time consuming to attempt to collect and categorize the music pie
 - Frontend:
   - [OpenWebUI](https://docs.openwebui.com/)
 - Backend:
-  - [Ollama](https://ollama.com/)
+  - [OLLaMa](https://ollama.com/)
 - Database:
   - Postgres database embedded with OpenWebUI
 - Infrastructure:
@@ -70,52 +70,40 @@ It can be very time consuming to attempt to collect and categorize the music pie
     - Google drive, pre-existing
 
 ### Performance Requirements
-- [List performance metrics]
-- [Include benchmarks if available]
+- There are no specific identified performance requirements due to the seldom and intermittent use of this application.  Also, when it is used for research, waiting several minutes for a response would be acceptable - not what to aim for, but acceptable.
+- A response time of less than 30s per prompt request would be a reasonable metric to achieve.
 
 ### Security Requirements
-- [List security requirements]
-- [Include compliance requirements if applicable]
+- There is concern for the copyright infringement protection around the google drive contents, and therefore around the AI usage of those contents.  A shared AI used by people outside of the orchestra could cause risk due to the copyrighted nature of the musical scores.  To mitigate this risk, careful attention should be given to accessing google drive, and ensure the AI is privately used by this orchestra only.
 
 ## Non-Functional Requirements
 ### Scalability
-- [Describe scalability requirements]
+- Scaling is not of concern for this application due to the nature of the single user - the orchestra librarian.
+- Scaling is also not an issue to achieve faster response time since a metric of 30s response is acceptable.
 
 ### Reliability
-- [Describe reliability requirements]
+- System reliability and uptime is not of concern for this application due to the intermittent nature of its use for research purposes only when planning quarterly concerts.  In fact, to reduce costs, it is likely that this application will be completely shut down during non-use.  This would require manual steps to be taken to bring the system online, requiring wait-time to begin using it.
 
 ### Maintainability
-- [Describe maintainability requirements]
+- Logs from EC2, Fargate, OLLaMa, postgres, and OpenWebUI containers should be shipped to CloudWatch for later perusal.
+- To assist with debugging and system monitoring, the free tier of CloudWatch keeping the logs for 30 days and up to 5 gigs of space will be acceptable.
 
 ### Compatibility
-- [List compatibility requirements]
-  - Browsers:
-  - Operating Systems:
-  - Devices:
+- Known systems that will access the application
+  - Browsers:  Chrome
+  - Operating Systems:  None
+  - Devices:  None, except maybe from Chrome on a phone
 
 ## Constraints
-- [List any technical, business, or regulatory constraints]
-
-## Dependencies
-- [List external dependencies]
-- [List internal dependencies]
+- The only known constraint is around the composition copyrights of the music library.  Even though the original orchestral arrangement is most likely out of copyright, the version of the composition that is in the library could be more recent and under copyright.  So care must be taken to prevent unauthorized usage or access to the drive contents, along with AI leakage.
 
 ## Timeline
-- [Include project timeline]
-- [List major milestones]
+- This is a side project for fun purposes only, so there is no contractual deadlines or agreed to delivery dates.
 
 ## Resources
-- [List required resources]
-- [Include budget considerations if applicable]
+- Budgeting for the initial prototypes is ZERO.  Building and running LLMs on local machines makes this feasible and achievable.
+- Budgeting for the DEV and UAT deployments in AWS will be within the boundaries of my own pocketbook.  This means close careful inspection of expenditures and carefully reducing the footprint to zero when not actively developing the application.
+- Prod release will occur to an AWS account with billing directly to the Orchestra.  Still requires careful attention to approach near zero monthly expenses.
 
-## Risks
-- [List potential risks]
-- [Include mitigation strategies]
-
-### References
-- [List relevant documents]
-- [Include links to external resources]
-
-### Change Log
-| Date | Version | Description | Author |
-|------|---------|-------------|---------| 
+## Phases of Development
+Please see [Development Phases](./phases/phases.md) for a breakdown of epics, stories, and current state of each.
